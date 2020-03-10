@@ -7,8 +7,9 @@ import "../assets/img/4geeks.ico";
 import "../style/index.scss";
 
 window.onload = () => {
-  const randomIndexSelector = array =>
-    array[Math.random() * (array.length - 1 - 0) + 0];
+  const selectRandomIndex = array => 
+    array[Math.floor(Math.random() * ((array.length-1) - 0) + 0)];
+
   let numbers = [
     "A",
     "2",
