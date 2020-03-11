@@ -7,9 +7,8 @@ import "../assets/img/4geeks.ico";
 import "../style/index.scss";
 
 window.onload = () => {
-  const selectRandomIndex = array => 
-    array[Math.floor(Math.random() * ((array.length-1) - 0) + 0)];
-
+  const selectRandomIndex = array =>
+    array[Math.floor(Math.random() * (array.length - 1 - 0) + 0)];
   let numbers = [
     "A",
     "2",
@@ -26,8 +25,8 @@ window.onload = () => {
     "J"
   ];
   let suites = ["diamonds", "hearts", "spades", "clubs"];
-  const suiteChar = randomIndexSelector(suites);
-  const numberSelect = randomIndexSelector(numbers);
+  const suiteChar = selectRandomIndex(suites);
+  const numberSelect = selectRandomIndex(numbers);
   const card = document.querySelector(".card");
   console.log(card, numberSelect, suiteChar);
 
