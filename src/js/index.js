@@ -1,14 +1,11 @@
 /* eslint-disable */
-
 import "file-loader?name=[name].[ext]!../index.html";
 import "../assets/img/rigo-baby.jpg";
 import "../assets/img/4geeks.ico";
 //import 'breathecode-dom'; //DOM override to make JS easier to use
 import "../style/index.scss";
-
 window.onload = () => {
-  let selectRandom = arrayRandom => [Math.floor(Math.random() * arrayRandom)];
-
+  let suites = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
   let numbers = [
     "A",
     "2",
@@ -24,23 +21,11 @@ window.onload = () => {
     "Q",
     "J"
   ];
-  let suites = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
-
-  let randomSuites = () => {
-    let suiteIcon = document.getElementById("suites");
-    let iconRandom = selectRandom(suites.length);
-    // console.log(iconRandom);
-    for (s in suiteIcon) {
-      suiteIcon(s).innerHTML = suites[iconRandom];
-      //console.log(suiteIcon(s));
-      if (iconRandom === 2 || iconRandom === 3) {
-        suiteIcon(s).style.color = "white";
-      }
-    }
+  const getRand = x => {
+    let randNum = Math.floor(Math.random() * x.length);
+    return x[randNum];
   };
-  let randomNumber = () => {
-    let numberRandom = selectRandom(numbers.length);
-    document.getElementById("numbers").innerHTML = numbers[numberRandom];
-    console.log(numberRandom);
-  };
+  let test = (document.querySelector("#suites").innerHTML = getRand(suites));
+  document.querySelector("#numbers").innerHTML = getRand(numbers);
+  document.querySelector("#suites2").innerHTML = test;
 };
