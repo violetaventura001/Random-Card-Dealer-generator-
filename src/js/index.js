@@ -7,8 +7,8 @@ import "../assets/img/4geeks.ico";
 import "../style/index.scss";
 
 window.onload = () => {
-  const selectRandomIndex = array =>
-    array[Math.floor(Math.random() * (array.length - 1 - 0) + 0)];
+  let selectRandom = arrayRandom => [Math.floor(Math.random() * arrayRandom)];
+
   let numbers = [
     "A",
     "2",
@@ -24,17 +24,23 @@ window.onload = () => {
     "Q",
     "J"
   ];
-  let suites = ["diamonds", "hearts", "spades", "clubs"];
-  const suiteChar = selectRandomIndex(suites);
-  const numberSelect = selectRandomIndex(numbers);
-  const card = document.querySelector(".card");
-  console.log(card, numberSelect, suiteChar);
+  let suites = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
 
-  //   document.querySelector(".card").classlist.add(randonsuites());
-  //   document.querySelector(".card").innerHTML = randonnumbers();
-};
-
-let randonsuites = () => {
-  let indexsuites = Math.floor(Math.random() * Math.floor(suites.length));
-  return suites[indexsuites];
+  let randomSuites = () => {
+    let suiteIcon = document.getElementById("suites");
+    let iconRandom = selectRandom(suites.length);
+    // console.log(iconRandom);
+    for (s in suiteIcon) {
+      suiteIcon(s).innerHTML = suites[iconRandom];
+      //console.log(suiteIcon(s));
+      if (iconRandom === 2 || iconRandom === 3) {
+        suiteIcon(s).style.color = "white";
+      }
+    }
+  };
+  let randomNumber = () => {
+    let numberRandom = selectRandom(numbers.length);
+    document.getElementById("numbers").innerHTML = numbers[numberRandom];
+    console.log(numberRandom);
+  };
 };
